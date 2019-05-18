@@ -1,0 +1,37 @@
+html{
+	/*Must be the same color as class "let-there-be-background*/
+	background-color: #D6D6D6;
+
+}
+
+.let-there-be-background{
+	/*Must be the same color as html*/
+	background-color: #D6D6D6;
+	justify-content: center;
+}
+.colored-area {
+	padding: 100px;
+	margin: 1.6%;
+	border-radius: 5px;
+	align-content: center;
+}
+
+.colored-area-hover{
+
+	border-radius: 25%;
+	text-shadow: : 50%;
+}
+.banner{
+	text-align: center;
+	color: white;
+	background-color: black;
+	margin-left: -20px;
+	margin-right: -20px;
+	padding: 3.6%;
+	box-shadow: 0.6%, 0.6%;
+}
+
+.options-banner{
+	background-color: white;
+
+}
