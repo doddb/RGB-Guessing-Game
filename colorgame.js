@@ -41,13 +41,13 @@ function easyMode(){
 
 		// For setting the 4-6 squares back to neutral color in the event of a difficulty switch
 		square = document.getElementById("04");
-		square.style.backgroundColor = "#D6D6D6";
+		square.style.backgroundColor = "#FAFAFA";
 
 		square = document.getElementById("05");
-		square.style.backgroundColor = "#D6D6D6";
+		square.style.backgroundColor = "#FAFAFA";
 
 		square = document.getElementById("06");
-		square.style.backgroundColor = "#D6D6D6";
+		square.style.backgroundColor = "#FAFAFA";
 
 		//----------------------
 		//For loop to replacethe above code
@@ -106,6 +106,10 @@ function easyMode(){
 		};
 
 }
+
+
+
+
 
 function hardMode(){
 	// This is code for the optional hard mode. (6 squares)
@@ -218,25 +222,48 @@ var resetGame = document.getElementById("reset");
 
 //Starts the game off in easy mode
 easyMode();
+var onEasy = true;
 
-//Switches the game back to easy mode. also resets the game
+//Switches the game back to easy mode
 easyButton.addEventListener("click", function(){
-	document.querySelector(".banner").style.backgroundColor = "#000000"
-	document.querySelector("#Annoucement").innerHTML = "Pick The Color That Matches";
-	easyMode();
+	if(onEasy == false){
+		document.querySelector(".banner").style.backgroundColor = "#000000"
+		document.querySelector("#Annoucement").innerHTML = "Pick The Color That Matches";
+		//sets global difficulty
+		onEasy = true;
+		easyMode();
+	}
+
 });
 
 //Changes the game to hard mode
 hardButton.addEventListener("click", function(){
-	document.querySelector(".banner").style.backgroundColor = "#000000"
-	document.querySelector("#Annoucement").innerHTML = "Pick The Color That Matches";
-	hardMode();
+	if(onEasy == true){
+		document.querySelector(".banner").style.backgroundColor = "#000000"
+		document.querySelector("#Annoucement").innerHTML = "Pick The Color That Matches";
+		//sets global difficulty
+		onEasy = false;
+		hardMode();
+	}
+
 });
 
 // Code to reset the game.
 resetGame.addEventListener("click", function(){
-	document.querySelector(".banner").style.backgroundColor = "#000000"
-	document.querySelector("#Annoucement").innerHTML = "Pick The Color That Matches";
+	
+	if(onEasy == true){
+		document.querySelector(".banner").style.backgroundColor = "#000000"
+		document.querySelector("#Annoucement").innerHTML = "Pick The Color That Matches";
+		//sets global difficulty
+		onEasy = true;
+		easyMode();
+	}
 
-
+	else if(onEasy == false){
+		document.querySelector(".banner").style.backgroundColor = "#000000"
+		document.querySelector("#Annoucement").innerHTML = "Pick The Color That Matches";
+		//sets global difficulty
+		onEasy = false;
+		hardMode();
+	}
 });
